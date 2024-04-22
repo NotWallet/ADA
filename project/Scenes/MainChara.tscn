@@ -1,55 +1,55 @@
 [gd_scene load_steps=39 format=3 uid="uid://bfwr1cfb3rh40"]
 
 [ext_resource type="Script" path="res://Scenes/MainChara.gd" id="1_6vknk"]
-[ext_resource type="Texture2D" uid="uid://dheemweysjqo" path="res://Jump (32x32).png" id="1_op3ms"]
-[ext_resource type="Texture2D" uid="uid://cgg0cebvknja5" path="res://Idle (32x32).png" id="2_im6n5"]
-[ext_resource type="Texture2D" uid="uid://dujikcgrif1il" path="res://Double Jump (32x32).png" id="3_6kc0b"]
-[ext_resource type="Texture2D" uid="uid://b0d7fugb2nsjb" path="res://Run (32x32).png" id="5_au5tx"]
+[ext_resource type="Texture2D" uid="uid://cgg0cebvknja5" path="res://Graphics/Idle (32x32).png" id="2_it2iw"]
+[ext_resource type="Texture2D" uid="uid://dujikcgrif1il" path="res://Graphics/Double Jump (32x32).png" id="3_6kc0b"]
+[ext_resource type="Texture2D" uid="uid://dheemweysjqo" path="res://Graphics/Jump (32x32).png" id="4_cutpn"]
+[ext_resource type="Texture2D" uid="uid://b0d7fugb2nsjb" path="res://Graphics/Run (32x32).png" id="5_au5tx"]
 [ext_resource type="AudioStream" uid="uid://bn5u7gplb4bfy" path="res://mixkit-player-jumping-in-a-video-game-2043.wav" id="6_jaoo8"]
 [ext_resource type="AudioStream" uid="uid://c56tiivaq3gis" path="res://splat2ogg-14668.mp3" id="7_nsa78"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0vfa"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jfvr"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8u70"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frc8q"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yyuih"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vobqh"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3g8dc"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2agp3"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pp672"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npumm"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5nlo"]
-atlas = ExtResource("2_im6n5")
+atlas = ExtResource("2_it2iw")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05bj1"]
@@ -189,7 +189,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_op3ms")
+"texture": ExtResource("4_cutpn")
 }],
 "loop": true,
 "name": &"jumping",
@@ -240,7 +240,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dedso"]
 size = Vector2(44, 52)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6vknk")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

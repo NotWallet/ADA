@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var isHit = velocity.y<1 and velocity.y>-1
 
 var Jumps = 2
+var Health = 3
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -48,4 +49,11 @@ func _physics_process(delta):
 	sprite_2d.flip_h = isLeft 
 	if not is_on_floor() and isHit:
 		$FallSound.play()
+		
+		
+func TakeDamage(amount):
+	Health -= amount
+	if Health < 0:
+		#end game
+		pass
 		

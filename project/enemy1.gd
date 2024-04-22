@@ -1,28 +1,31 @@
 extends CharacterBody2D
 
 
-var SPEED = 1
+var SPEED = 2000
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var direction = 1
+
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
-	position.y += SPEED
-	if position.y > 100:
-		SPEED -= 1
-	if position.y <= 0:
-		SPEED += 1
-	
+	# Apply gravity
+	velocity.y += gravity * delta
+
+	# Move horizontally
+	velocity.x = SPEED * direction * delta
 	move_and_slide()
 
+	if is_on_wall():
+		direction *= -1
+		
 
 
 
-func _on_area_2d_body_entered(body):
+
+
+func _on_stomp_body_entered(body):
+	print(body.name)
 	if body.name == "Player":
-		self.queue
+		self.queue_free()
