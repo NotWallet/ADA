@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var isHit = velocity.y<1 and velocity.y>-1
 
+var Jumps = 2
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -17,16 +19,16 @@ func _physics_process(delta):
 		sprite_2d.animation = "jumping"
 	if is_on_floor():
 		sprite_2d.animation = "default"
-	
+		Jumps = 2
 		
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and Jumps != 0:
+		Jumps = Jumps - 1
+		print(Jumps)
 		velocity.y = JUMP_VELOCITY
 		$SoundJump.play()
-	if Input.is_action_just_pressed("ui_accept") and not is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		$SoundJump.play()
+
 
 	
 	
@@ -46,3 +48,4 @@ func _physics_process(delta):
 	sprite_2d.flip_h = isLeft 
 	if not is_on_floor() and isHit:
 		$FallSound.play()
+		
