@@ -11,7 +11,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var isHit = velocity.y<1 and velocity.y>-1
 
 var Jumps = 2
+var CanDash = true
 var Health = 3
+var facing
+var face = 1
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -21,6 +24,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		sprite_2d.animation = "default"
 		Jumps = 2
+		get_tree().create_timer(0.4)
+		CanDash = true
 		
 	
 	# Handle jump.
@@ -45,10 +50,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	var isLeft = velocity.x<0
-	sprite_2d.flip_h = isLeft 
-	if not is_on_floor() and isHit:
-		$FallSound.play()
+	facing = velocity.x<0
+	if velocity.x != 0:
+		if facing == true:
+			face = -1
+		else:
+			face = 1
+	sprite_2d.flip_h = facing
+	
+	
+
 		
 		
 func TakeDamage(amount):
@@ -56,4 +67,11 @@ func TakeDamage(amount):
 	if Health < 0:
 		#end game
 		pass
+		
+		
+func Dash():
+	CanDash = false
+	velocity.x += 1000 * face
+	pass
+	
 		
