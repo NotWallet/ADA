@@ -1,6 +1,6 @@
-extends Node
+extends Camera2D
 
-
+@onready var Player = get_node("root/Main/Player/")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,10 +11,7 @@ func _process(delta):
 	pass
 
 
-func _on_kill_zone_area_entered(area):
-	pass
 
 
-func _on_kill_zone_body_entered(body):
-		if body.name == "Player":
-			$Player.position = $Respawn.position
+
+
